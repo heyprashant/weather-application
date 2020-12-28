@@ -53,3 +53,8 @@ button {
     color: white;
     padding: 8px;
 }
+.aboutMe {
+    padding: 1px;
+    font-family:cursive;
+    color: #888888;
+}
