@@ -54,7 +54,8 @@ button {
     padding: 8px;
 }
 .aboutMe {
+    display: flex;
     padding: 1px;
-    font-family:cursive;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #888888;
 }
