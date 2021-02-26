@@ -3,9 +3,13 @@ const express = require('express');
 const hbs = require('hbs');
 const forecast = require('./utils/forecast');
 const geocode = require('./utils/geocode'); 
+const revGeocode = require('./utils/revGeocode')
 
 const app = express();
 const port = process.env.PORT || 3000;
+
+// Parsing string to json
+app.use(express.json())
 
 // Define pahts for Express config
 const publicDirectoryPath = path.join(__dirname, '../public');
@@ -56,9 +60,10 @@ app.get('/weather', ( req, res) => {
             if(error) {
                 return res.send({ error });
             }
+
             res.send({ forecast: forecastData, 
                     location,
-                    address: req.query.address });   
+                    });   
         })
     })
 });
@@ -78,6 +83,27 @@ app.get('*', (req, res) => {
         title: '404',
         name: 'Prashant'
     })
+})
+
+app.post('/weather', (req, res) => {
+    
+    revGeocode( req.body.longitude, req.body.latitude, (error, location) => {
+        if(error) {
+            return res.send({ error });
+        }
+
+        forecast(req.body.latitude, req.body.longitude, (error, forecastData) => {
+            if(error) {
+                return res.send({ error });
+            }
+            res.send({
+                forecast: forecastData, 
+                location});   
+        })
+
+    })
+
+    
 })
 
 app.listen( port, () => {
