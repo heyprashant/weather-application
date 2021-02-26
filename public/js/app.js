@@ -1,10 +1,15 @@
+// const weatherForm = document.querySelector("form");
 
-const weatherForm = document.querySelector("form");
 const searchInput = document.querySelector("input");
-const messageOne = document.querySelector('#message-1');
-const messageTwo = document.querySelector('#message-2');
 const searchBtn = document.querySelector('#search')
 const locationBtn = document.querySelector('#location')
+const locationElement = document.querySelector('[location]')
+const statusElement = document.querySelector('[status]')
+const windElement = document.querySelector('[wind]')
+const temperatureElement = document.querySelector('[temperature]')
+const humidityElement = document.querySelector('[humidity]')
+
+
 
 // const searchBox = new google.maps.places.SearchBox(searchInput)
 // searchBox.addListener('places_changed', () => {
@@ -34,19 +39,18 @@ searchBtn.addEventListener("click", () => {
     // messageOne.textContent = 'Loading...';
     // messageTwo.textContent = '';
     //Fetch is a browser method.
-    fetch('/weather?address=' + location).then((response) => {
-        response.json().then((data) => {
+    fetch('/weather?address=' + location)
+        .then((res) => res.json())
+        .then((data) => {
             if (data.error) {
-                messageOne.textContent = data.error;
+                // messageOne.textContent = data.error;
             } 
             else {
                 console.log(data)
-                // messageOne.textContent = data.location;
-                // messageTwo.textContent = data.forecast;
+                setWeatherData(data)
             }
-        });
-    });
-});
+        })
+})
 
 locationBtn.addEventListener('click', () => {
     if(!navigator.geolocation) {
@@ -67,8 +71,26 @@ locationBtn.addEventListener('click', () => {
             })
         })
         .then( (res) => res.json())
-        .then((data) => console.log(data))
-        .catch((e) => console.log(e))
+        .then((data) => {
+            if (data.error) {
+                // messageOne.textContent = data.error;
+            } 
+            else {
+                
+                setWeatherData(data)
+            }
+        })
     })
-
 })
+
+function setWeatherData ({forecast, location}) {
+    console.log(forecast)
+    console.log(location)
+    locationElement.textContent = location
+    statusElement.textContent = forecast.weather
+    windElement.textContent = forecast.wind
+    temperatureElement.textContent = forecast.temperature
+    humidityElement.textContent = forecast.humidity
+    const dataIcon = 'Skycons.'+ forecast.weather
+    
+}

@@ -1,105 +1,188 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  /* font-family: 'Poppins', sans-serif; */
+  font-family: "M PLUS Rounded 1c", sans-serif;
 }
 
 body {
-    color: #333333;
-    font-family: Arial;
-    max-width: 650px;
-    margin: auto;
-    padding: 20px 60px 0 0;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
+  background: linear-gradient(to right, rgb(255, 167, 35), rgb(255, 97, 35));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
 }
-.search-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    grid-template-areas: "input input";
-    margin-bottom: 30px;
-}
-
-input {
-    grid-area: input;
+.container {
+  max-width: 90%;
+  width: 700px;
+  min-height: 500px;
+  background-color: white;
+  box-shadow: 0 5px 10px black;
+  border-radius: 5px;
 }
 
-button {
-    width: 70%;
-    margin: auto;
-    border-radius: 27px;
+.content {
+  padding: 20px;
+  margin-top: 20px;
 }
 
-.main-content {
-    border: 1px gray;
-    flex-grow: 1;
-    margin: auto;
-    margin-left: 0px;
-    width: 70%;
-}
-
-footer {
-    color: #888888;
-    border-top: 1px solid #eeeeee;
-    margin-top: 16px;
-    padding: 16px 0;
-    background-color: lightgreen;
+a {
+    color: black;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 16px;
-    margin-bottom: 48px;
-    /* background: linear-gradient(to right, #494964, #6f6f89); */
+  background-color: #f5f5f5;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
-h1 {
-    font-size: 64px;
-    margin-bottom: 16px;
+header .head {
+  font-size: 3rem;
+  font-weight: bold;
 }
 
 header a {
-    color: #888888;
-    margin-right: 16px;
-    text-decoration: none;
+  color: #888888;
+  margin-right: 16px;
+  text-decoration: none;
+  font-size: 1.1rem;
 }
 
-.portrait {
-    width: 250px;
+.general-information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10px;
 }
 
-input {
-    border: 1px solid #cccccc;
-    padding: 8px;
+.status {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+.location {
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
-button {
-    cursor: pointer;
-    border: 1px solid #888888;
-    background: #888888;
-    color: white;
-    padding: 8px;
+.detail-section {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
 }
-.aboutMe {
+
+.detail {
+  font-display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-basis: 0;
+  flex-grow: 1;
+  padding: 20px;
+  text-align: center;
+}
+
+.detail.bordered {
+  border-left: 1px solid #777;
+  border-right: 1px solid #777;
+}
+
+.detail .title {
+  align-items: center;
+  font-size: 1.5rem;
+  flex-grow: 1;
+  font-weight: bold;
+  color: #777;
+}
+
+.detail .value {
+  font-size: 1.5rem;
+  margin-top: 20px;
+}
+
+.search-container {
+    width: 100%;
     display: flex;
-    padding: 1px;
-    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    color: #888888;
+    justify-content: center;
+    margin: auto;
+    padding: 10px;
+}
+.search-input {
+  width: 60%;
+  height: 51px;
+  padding: 10px;
+  border: 2px solid #222;
+  border-radius: 5px 0 0 5px;
+  border-right: none;
+  outline: none;
+  font-size: 20px;
+  color:#222;
+  background: none;
+}
+.search-button {
+  text-align: center;
+  height: 51px;
+  width: 50px;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid #222;
+  border-radius: 0 ;
+  border-right: none;
+  border-left: none;
+  background: none;
+  font-size: 20px;
+  border-left: 2px solid #222;
+}
+.location-button {
+  text-align: center;
+  height: 51px;
+  width: 50px;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid #222;
+  border-radius: 0 5px 5px 0;
+  border-left: none;
+  background: none;
+  font-size: 20px;
+  border-left: 2px solid #222;
 }
 
-@media (max-width: 400px) {
-    h1 {
-        font-size: 4rem;
-        margin-bottom: 16px;
-    }
-    
-    header {
-        margin-top: 16px;
-        margin-bottom: 48px;
-        font-size: 2.4rem;
-    }
-   
+.help-button {
+    height: 55px;
+    width: 55px;
+    outline: none;
+    cursor: pointer;
+    border: 2px solid #222;
+    background: none;
+    font-size: 1.6rem;
+    color: #222;
+  }
+  .help-information {
+      margin: 20px;
+      padding: 20px;
+  }
+  
+.icon {
+    font-size: 4rem;
 }
+
+footer {
+  position: absolute;
+  bottom: 10px;
+  right: 200px;
+  color: #333;
+  font-size: 1 rem;
+}
+
+
+.contact-me {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+
