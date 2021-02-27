@@ -77,15 +77,14 @@ function fetchWeather() {
                 displayError.textContent = data.error
             } 
             else {
-                console.log(data)
+                
                 setWeatherData(data)    
             }
         })
 }
 
 function setWeatherData({forecast, location}) {
-    console.log(forecast)
-    console.log(location)
+    
     locationElement.textContent = location
     statusElement.textContent = forecast.weather
     windElement.textContent = forecast.wind + " Km/h"
