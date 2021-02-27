@@ -2,16 +2,37 @@
 
 <head>
     <title>Help</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" href="/img/weather.png">
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/styles.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"
+        integrity="sha512-ChQiOC9OBUvQ75KLv3+YRxCQLV1bSWnGfcSdaP1v3iu6XSkmge+eXCu3lcV+O+Uvdjb+LGMZd/KAvV4rkEfbzw=="
+        crossorigin="anonymous"></script>
+    <script defer src="/js/skycon.js"></script>
+
 </head>
 
 <body>
-    <div class="main-content">
+    <div class="container">
         {{>header}}
-        <p>{{helpText}}</p>
+        <div class="help-information">
+                <div>
+                    <button class="help-button"><i class="fas fa-search"></i></button>
+                    <span>Enter the location and hit this button to fetch the weather</span>
+                </div>
+                <br> <br>
+                <div>
+                    <button class="help-button"><i class="fas fa-map-marker-alt"></i></button>
+                    <span>Hit this button to fetch the weather for current loction.</span> 
+                </div>
+            </div>
+        </div>
     </div>
 
     {{>footer}}
 </body>
+
 </html>

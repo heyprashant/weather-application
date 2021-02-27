@@ -2,13 +2,23 @@
 <html lang="en">
 <head>
     <title>404</title>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <link rel="icon" href="/img/weather.png">
     <link rel="stylesheet" href="/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500&display=swap" rel="stylesheet">
+     <script defer src="https://cdnjs.cloudflare.com/ajax/libs/skycons/1396634940/skycons.min.js"
+        integrity="sha512-ChQiOC9OBUvQ75KLv3+YRxCQLV1bSWnGfcSdaP1v3iu6XSkmge+eXCu3lcV+O+Uvdjb+LGMZd/KAvV4rkEfbzw=="
+        crossorigin="anonymous"></script>
+    <script defer src="/js/app.js"></script>
+    <script defer src="/js/skycon.js"></script>
 </head>
 <body>
-    <div class="main-content">
+    <div class="container">
         {{>header}}
-        <p>{{errorMsg}}</p>
+        <div class="general-information">
+             <h1 style="margin: 100px;">{{errorMsg}}</h1>
+        </div>
+       
     </div>
 
     {{>footer}}
