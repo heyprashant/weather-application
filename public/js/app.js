@@ -1,4 +1,3 @@
-// const weatherForm = document.querySelector("form");
 
 const searchInput = document.querySelector("input");
 const searchBtn = document.querySelector('#search')
@@ -12,49 +11,22 @@ const displayError = document.querySelector('[error]')
 const loaderElement = document.querySelector('#loader')
 
 
-// const searchBox = new google.maps.places.SearchBox(searchInput)
-// searchBox.addListener('places_changed', () => {
-//     const place = searchBox.getPlaces()[0]
-//     if (place == null) return
-
-//     const latitude = place.geometry.location.lat()
-//     const longitude = place.geometry.location.lng()
-//     fetch('/weather', {
-//         method: 'POST',
-//         headers: {
-//             'Content-Type': 'application/json',
-//             'Accept': 'application/json'
-//         },
-//         body: JSON.stringify({
-//             latitude,
-//             longitude
-//         }) 
-//     }).then( res => res.json()).then( data => {
-         
-//     })
-    
-// })
-
 searchInput.addEventListener("keyup", (event) =>{
     if(event.keyCode === 13) {
-        loaderElement.style.display = "block"
-        statusElement.textContent = ""
-        locationElement.textContent = ""
-        displayError.textContent = ""
+        generalInfo()
         fetchWeather()
     }
 })
 
 searchBtn.addEventListener("click", () => {
+    generalInfo()
     fetchWeather()
 })
 
 locationBtn.addEventListener('click', () => {
+    generalInfo()
+
     searchInput.value = ""
-    loaderElement.style.display = "block"
-    statusElement.textContent = ""
-    locationElement.textContent = ""
-    displayError.textContent = ""
     if(!navigator.geolocation) {
         return alert('Geolocation is not supported by your browser.')
     }
@@ -85,6 +57,13 @@ locationBtn.addEventListener('click', () => {
         })
     })
 })
+
+function generalInfo() {
+    displayError.textContent = ""
+    loaderElement.style.display = "block"
+    statusElement.textContent = ""
+    locationElement.textContent = ""
+}
 
 function fetchWeather() {
     const location = searchInput.value;    
