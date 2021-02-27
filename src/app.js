@@ -71,7 +71,7 @@ app.get('/weather', ( req, res) => {
 app.get('/help/*', (req, res) => {
     res.render('404page',{
         errorMsg: 'Help article not found!',
-        title: '404',
+        title: 'Page not found!',
         name: 'Prashant'
 
     })
@@ -79,8 +79,8 @@ app.get('/help/*', (req, res) => {
 
 app.get('*', (req, res) => {
     res.render('404page',{
-        errorMsg: 'Page not found!',
-        title: '404',
+        errorMsg: 'Error 404! Page not found.',
+        title: 'Page not found!',
         name: 'Prashant'
     })
 })

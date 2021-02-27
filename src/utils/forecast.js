@@ -21,13 +21,8 @@ const forecast = (latitude, longitude, callback) => {
                 icon: body.current.weather_icons[0]
             }
             callback(undefined, data);
-
-            // callback(undefined, body.current.weather_descriptions[0] + '. It is currently ' + body.current.temperature + ' degrees out. It feels like ' + body.current.feelslike +' degrees out. The humidity is ' + body.current.humidity + '%.' );
         }
     })
 }
 
 module.exports = forecast;
-
-//location = {name , country, region }
-//current = {temperature, weather_icons[0], weather_descriptions[0], wind_speed, precip, humidity }

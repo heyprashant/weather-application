@@ -1,4 +1,3 @@
-
 const searchInput = document.querySelector("input");
 const searchBtn = document.querySelector('#search')
 const locationBtn = document.querySelector('#location')
