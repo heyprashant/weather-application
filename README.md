@@ -6,7 +6,10 @@
 - fetch weather forecast for any location
 - fetch weather forecast for current location using single button
 
-Covered a lot of new information and explored Node.js, Express - learning how we can serve up JSON and HTML, serve up the contents of entire directories or working with templating engines.
+Explored Node.js, Express -  
+- async JavaScript promises, callbacks. 
+- served up JSON and HTML, contents of entire directories.
+- working with templating engines (handlebars js).
 
 ### *API used:*  
 <ul>
